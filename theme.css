@@ -1,0 +1,184 @@
+﻿@charset "UTF-8";
+
+/*
+    Original CSS by kuriyama hibiya <kuriyama@hibiya.moe>
+    licensed under MIT license
+    based on 'xcom' theme which based on 'mario' theme
+
+    CSS Modified by Soul Lee <soul@neurolin.kr>
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Stylish');
+@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+
+* {
+        box-sizing: border-box;
+}
+html {
+    position: relative;
+    left: 5px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Noto Sans KR', '본고딕', sans-serif;
+}
+body {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+}
+#chat_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5rem;
+    word-wrap: break-word;
+}
+.chat_outer_box {
+    margin: 0.25rem 0;
+    padding: 0 0 0.5rem 0;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0) !important;
+}
+/* Nickname / Badge */
+.chat_upper_box {
+    position: relative;
+    padding: 0 0.35rem 0.05rem 0.35rem;
+    display: flex;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0) !important;
+}
+.chat_nickname_box {
+    display: flex;
+    flex-grow: 1;
+    padding: 0;
+    color: #fff !important;
+    font-family: Stylish;
+    font-size: 1.25em;
+    text-shadow: 0 0 0.25rem #000, 0 0 0.125rem #000, 0 0 0.125rem #000, 0 0 0.125rem #000;
+}
+.chat_badge_box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 0.25rem;
+}
+.chat_badge_box > img {
+    width: 1.375rem;
+    height: 1.375rem;
+    margin: 0 0 0 0.1rem;
+    border: 0.125rem solid rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.25);
+}
+/* Messages */
+.chat_lower_box {
+    left: 0.3rem;
+    width: 95%;
+    position: relative;
+    color: #000000;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 0px 15px 15px 15px;
+    box-shadow: 0rem 0.2rem 0.2rem 0.1rem rgba(0, 0, 0, 0.4);
+    text-shadow: none;
+}
+.chat_msg_box {
+    padding: 0.25rem 0.5rem;
+    max-height: 14rem; /* 텍스트 영역 최대 높이 */
+    font-size: 0.9rem;
+    white-space: pre-line;
+}
+.chat_msg_box.image_only {
+    text-align: center;
+}
+.chat_msg_box.image_only:empty {
+    display: none;
+}
+
+/* Image Sizes */
+.cheer_icon, .twitch_emote, .dccon {
+    vertical-align: bottom;
+}
+.cheer_icon {
+    max-height: 1.25rem;
+}
+.twitch_emote {
+    max-height: 2rem;
+}
+.dccon {
+    max-height: 6.25rem;
+}
+
+/* Special Cases */
+@keyframes blinking-text {
+    from { color: #000; }
+    to { color: rgba(0, 0, 0, 0.25); }
+}
+.chat_subscribe_box,
+.chat_cheer_box	{ /* TODO: fix outgoing twip donations */
+    text-align: center;
+    font-family: Stylish, serif;
+    padding: 3rem 0.5rem 1rem 0.5rem;
+    margin-top: -2.5rem;
+    font-size: 1.5rem;
+    background: rgba(0, 0, 0, 0) !important;
+    background-blend-mode: multiply;
+    text-shadow: none;
+    color: #000;
+    animation: blinking-text 1s infinite alternate ease;
+}
+.chat_cheer_text {
+    color: #fff;
+    display: inline-block;
+    padding: 0.1rem 0.25rem;
+    margin: 0.08rem;
+    border: 0.08rem solid #fff;
+    background-color: rgba(0, 0, 0, 0.125);
+}
+.chat_msg_box > .chat_cheer_box {
+    margin: -2.5rem -0.5rem 0 -0.5rem;
+}
+.chat_subscribe_box + .chat_msg_box:empty {
+    display: none;
+}
+
+/* Clip */
+.chat_clip_box {
+    display: flex;
+    flex-direction: column;
+    height: 8rem;
+    padding: 0.25rem 0.5rem;
+    color: #fff;
+}
+.chat_clip_box.invalid {
+    height: 1.5rem;
+    text-align: center;
+    color: #acc;
+    text-shadow: none;
+}
+.chat_clip_box > img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+.chat_clip_title, .chat_clip_by {
+    position: relative;
+}
+.chat_clip_title {
+    flex-grow: 1;
+    overflow: hidden;
+}
+.chat_clip_by {
+    text-align: right;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.75);
+}
